@@ -15,19 +15,26 @@ def home(request):
     return render(request,'home.html')
 
 def login(request):
-    if request.method=='POST':
-      username=request.POST['name']
-      password=request.POST['password']
-      user=auth.authenticate(username=username,password=password)
-      if user is not None:
-        auth.login(request,user)
-        messages.success(request,"Logged in successfully")
-        return redirect("/")
-      else:
-        messages.error(request,"User does not exists")
-        return render(request,'login.html')
+    if request.method == 'POST':
+        # Use .get() method to safely access form data
+        username = request.POST.get('name')
+        password = request.POST.get('password')
+
+        if username is None or password is None:
+            messages.error(request, "Username and password are required")
+            return redirect("/login/")  # Redirect back to login if fields are missing
+
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, "Logged in successfully")
+            return redirect("/")  # Redirect to the homepage after successful login
+        else:
+            messages.error(request, "Username and password are required")  # Changed message
+            return redirect('/signup/')  # Redirect to the Sign in instead of rendering the template
     else:
-        return render(request,'login.html')
+        return render(request, 'login.html')
+
     
 def signup(request):
     if request.method=='POST':
