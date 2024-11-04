@@ -1,57 +1,70 @@
 {% extends "base.html" %}
-    {% block content %}
-    {% for message in messages %}
-        <div class="alert alert-success" role="alert">
-            <p>{{message}}</p>
-        </div>
-    {% endfor %}
-    <div id="carouselExampleCaptions" class="carousel slide">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="static/cat-item1.jpg" class="d-block w-100 opacity-75" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="static/cat-item2.jpg" class="d-block w-100 opacity-75" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="static/cat-item3.jpg" class="d-block w-100 opacity-75" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the tahird slide.</p>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <div style="position: absolute;top: 30vh;left: 15vw;">
-        <h1 style="font-size: 12rem;">Welcome To PLATFORM 9³/⁴</h1>
+{% block content %}
+
+<!-- Display success messages with improved styling and fade-out effect -->
+{% for message in messages %}
+<div class="alert alert-success fade show" role="alert" style="position: fixed; top: 10px; right: 10px; z-index: 1050;">
+  <p>{{ message }}</p>
+</div>
+{% endfor %}
+
+<!-- Carousel Section -->
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://media.istockphoto.com/id/1350027417/photo/young-adult-dancers-in-the-city-on-a-modern-staircase.jpg?s=612x612&w=0&k=20&c=IZIP21f_abWxP-K0G2MSVtn7UxHCWAFP6VEtES6ED8A=" class="d-block" width="100%" alt="Fashion">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Fashion</h5>
+        <p>Clothings for all.</p>
       </div>
     </div>
-    <script>
-      var alertElements = document.querySelectorAll('.alert');
-      alertElements.forEach(function(alertElement, index) {
-          setTimeout(function() {
-              alertElement.style.display = 'none';
-          }, (index + 1) * 2000);
-      });
-    </script>
-    {% endblock content %}
+    <div class="carousel-item">
+      <img src="https://media.istockphoto.com/id/827098826/photo/home-appliances-household-kitchen-technics-in-the-empty-room.jpg?s=612x612&w=0&k=20&c=ZLZY6g5EeTxi4qNyhhW1rZP99nqRBK9gcX6O-ZseNuw=" class="d-block" width="100%" alt="Electronics">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Electronics</h5>
+        <p>From smartphones to grinders, everything at the same place.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://media.istockphoto.com/id/943910360/photo/posters-in-cozy-apartment-interior.jpg?s=612x612&w=0&k=20&c=QzNjsxCNMcFNxpn4E2ocPvSU8Ud2S3B_mHyo5L-HOLo=" class="d-block h-40" width="100%" alt="Home decor">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Home Decor</h5>
+        <p>To make your loving space more lively.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Welcome text overlay with enhanced styling -->
+<div style="position: absolute; top: 30vh; left: 10vw; color: #fff; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);">
+  <h1 style="font-size: 8rem; font-weight: bold;">Shopping Street</h1>
+  <p style="font-size: 1.5rem;">Your magical shopping journey begins here!</p>
+</div>
+
+<!-- JavaScript for dismissing alerts after a few seconds -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var alertElements = document.querySelectorAll('.alert');
+    alertElements.forEach(function (alertElement, index) {
+      setTimeout(function () {
+        alertElement.classList.add('fade');
+        alertElement.addEventListener('transitionend', () => alertElement.remove());
+      }, (index + 1) * 3000);
+    });
+  });
+</script>
+
+{% endblock content %}
