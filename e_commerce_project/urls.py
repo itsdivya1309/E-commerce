@@ -15,12 +15,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from eshop import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('', views.base, name='base'),
-    path('home', views.home, name='home'),
-    path('about', views.about, name='about'),
+    path('admin/', admin.site.urls),
+    path('', views.home,name='home'),
+    path('login/', views.login,name='login'),
+    path('signup/', views.signup,name='signup'),
+    path('logout/', views.logout,name='logout'),
+    path('products/', views.products,name='products'),
+    path('products/<int:pk>/', views.item,name='item'),
+    path('cart/', views.cart,name='cart'),
+    path('cart/remove/<int:pk>', views.cart_remove,name='cart_remove'),
+    path('add_to_cart/<int:pk>', views.add_to_cart,name='add_to_cart'),
+    path('checkout/', views.checkout,name='checkout'),
+    path('profile/', views.profile,name='profile'),
+    path('buy/<int:pk>', views.buy,name='buy'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

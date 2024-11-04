@@ -1,0 +1,103 @@
+/* Reset some basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #343a40; /* Dark background */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0.8rem 1.5rem;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #ddd;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 1rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+/* Button styling */
+.btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Hover border effect for interactive elements */
+.hover-border:hover {
+    border: 2px solid black;
+    transition: border 0.3s ease;
+}
+
+/* Container for main content to center and add padding */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+}
+
+/* Basic styling for custom blocks */
+{% block content %} {
+    margin-top: 2rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+
+    .btn-outline-primary, .btn-outline-danger {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
