@@ -12,11 +12,11 @@
             <form method="POST">
               {% csrf_token %}
               <hr>
-              <p>Categories</p>
+              <p><strong>Categories</strong></p>
               {% for category in categories %}
               <div class="form-check m-2">
                 <input class="form-check-input" style="margin-left: 1vw;" type="checkbox" name="{{ category.name }}" id="{{ category.name }}">
-                <label class="form-check-label" style="margin-right: 5vw;" for="{{ category.name }}">
+                <label class="form-check-label" style="margin-right: 3vw;" for="{{ category.name }}">
                   {{ category }}
                 </label>
               </div>
